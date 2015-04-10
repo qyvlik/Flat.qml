@@ -22,4 +22,4 @@ you can show a fbi warning dialog <b>just have fun</b>
 # FlatUI
 http://www.bootcss.com/p/flat-ui/
 # Qt
-http://qt.io
+http://www.qt.io
