@@ -1,0 +1,33 @@
+/*
+ * author qyvlik
+ * email qyvlik@qq.com
+ * time 2015/4/10
+*/
+
+import QmlProject 1.1
+
+Project {
+    //mainFile: "./demo/AddTags/AddTags.qml"
+    //mainFile: "./demo/ShowMenu/ShowMenu.qml"
+    //mainFile: "./demo/RunningAppliction/RunningAppliction.qml"
+    //mainFile: "./demo/CodeEditor/CodeEditor.qml"
+    //mainFile: "./demo/ShowMenuInWindow/ShowMenuInWindow.qml"
+    //mainFile: "./demo/NewWindow/NewWindow.qml"
+    //mainFile: "./demo/Test/Test.qml"
+    //mainFile: "./demo/StackViewDemo/StackViewDemo.qml"
+    //mainFile: "./demo/WatchImageOnFullSceen/WatchImageOnFullSceen.qml"
+
+    mainFile: "main.qml"
+    /* Include .qml, .js, and image files from current directory and subdirectories */
+    QmlFiles {
+        directory: "."
+    }
+    JavaScriptFiles {
+        directory: "."
+    }
+    ImageFiles {
+        directory: "."
+    }
+    /* List of plugin directories passed to QML runtime */
+    importPaths: [ "./modules","./demo" ]
+}
