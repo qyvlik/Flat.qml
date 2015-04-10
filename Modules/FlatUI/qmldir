@@ -1,0 +1,24 @@
+# author qyvlik
+# email qyvlik@qq.com
+# time 2015/4/10
+
+module FlatUI
+
+singleton FlatGlobal 2.0 FlatGlobal.qml
+
+FlatButton 2.0 ./element/FlatButton.qml
+FlatProgressBar 2.0 ./element/FlatProgressBar.qml
+FlatTextField 2.0 ./element/FlatTextField.qml
+FlatSlider 2.0 ./element/FlatSlider.qml
+FlatMainWindow 2.0 ./element/FlatMainWindow.qml # use AbstructWindow
+FlatIcon 2.0 ./element/FlatIcon.qml
+FlatSwitch 2.0 ./element/FlatSwitch.qml
+FlatRadio 2.0 ./element/FlatRadio.qml
+FlatCheckBox 2.0 ./element/FlatCheckBox.qml
+FlatMenu 2.0 ./element/FlatMenu.qml
+FlatTip 2.0 ./element/FlatTip.qml
+FlatTags 2.0 ./element/FlatTags.qml
+FlatDialog 2.0 ./element/FlatDialog.qml # use AbstructWindow
+FlatComboBox 2.0 ./element/FlatComboBox.qml # have menu Text Field
+
+FlatMagnet 2.0 ./element/FlatMagnet.qml # may not useful
