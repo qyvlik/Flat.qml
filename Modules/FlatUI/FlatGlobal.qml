@@ -218,7 +218,7 @@ QtObject{
         objectName: "fontLoader"
         id:__fontLoader;
         //source:"./Resource/ttf/lato-regular.ttf"; //
-        source:"./resource/ttf/NotoSansHans-Regular.otf";
+        source:"./Resource/ttf/NotoSansHans-Regular.otf";
     }
     property Text __text: Text{
         id:text;
