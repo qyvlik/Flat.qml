@@ -30,37 +30,47 @@ Button {
             radius:FlatGlobal.radius;
             color:button.pressed?afterPressColor:beforePressColor
         }
-        label:Row{
-            spacing: size
-            Image{
-                width: size
-                height: size
-                source:button.iconSource
-                visible: iconOnLeft ? ((button.iconSource == "") ? false : true ):false
-                anchors.verticalCenter: parent.verticalCenter
+        label:Item {
+            implicitWidth: row.implicitWidth
+            implicitHeight: row.implicitHeight
+            baselineOffset: row.y + buttonText.y + buttonText.baselineOffset
+            Row{
+                id:row
+                spacing: size
+                anchors.centerIn: parent
+                Image{
+                    width: size
+                    height: size
+                    source:button.iconSource
+                    visible: iconOnLeft ? ((button.iconSource == "") ? false : true ):false
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                Text{
+                    id:buttonText
+                    text:button.text
+                    font.pointSize: button.size
+                    font.family: FlatGlobal.font.family
+                    horizontalAlignment: Text.AlignHCenter
+                    color:"white";
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                Image{
+                    width: size
+                    height: size
+                    source:button.iconSource
+                    visible: !iconOnLeft ? ((button.iconSource == "") ? false : true ):false;
+                    anchors.verticalCenter: parent.verticalCenter
+                }
             }
-            Text{
-                text:button.text
-                font.pointSize: button.size
-                font.family: FlatGlobal.font.family
-                horizontalAlignment: Text.AlignHCenter
-                color:"white";
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            Image{
-                width: size
-                height: size
-                source:button.iconSource
-                visible: !iconOnLeft ? ((button.iconSource == "") ? false : true ):false;
-                anchors.verticalCenter: parent.verticalCenter
-            }
+
         }
     }
+}
 
 //    property bool __haveMenu:false;
 //    onMenuChanged: {
 //        if(button.menu != null)  __haveMenu = true;
 //        else  __haveMenu = false;
 //    }
-}
+
 

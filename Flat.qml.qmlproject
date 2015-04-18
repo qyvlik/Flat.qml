@@ -12,12 +12,13 @@ Project {
     //mainFile: "./demo/RunningAppliction/RunningAppliction.qml"
     //mainFile: "./demo/CodeEditor/CodeEditor.qml"
     //mainFile: "./demo/ShowMenuInWindow/ShowMenuInWindow.qml"
-    //mainFile: "./demo/NewWindow/NewWindow.qml"
-    //mainFile: "./demo/Test/Test.qml"
-    //mainFile: "./demo/StackViewDemo/StackViewDemo.qml"
-    //mainFile: "./demo/WatchImageOnFullSceen/WatchImageOnFullSceen.qml"
+    //mainFile: "./demo/SidebarDemo/SidebarDemo.qml"
+    //mainFile: "./demo/DoubanAPIDemo/DoubanAPIDemo.qml"
 
+    //mainFile: "./demo/LookYouTuBe/LookYouTuBe.qml"
+    //mainFile: "./demo/DoubanClient/DoubanClient.qml"
     mainFile: "main.qml"
+    //mainFile: "./demo/LookYouTuBe/LookYouTuBe.qml"
     /* Include .qml, .js, and image files from current directory and subdirectories */
     QmlFiles {
         directory: "."

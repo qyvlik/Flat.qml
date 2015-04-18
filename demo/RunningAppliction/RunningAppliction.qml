@@ -11,8 +11,8 @@ import FlatUI 2.0
 FlatMainWindow {
     id:window;
     title: qsTr("running appliction")
-    width: 640
-    height: 480
+    width: 300
+    height:100
 
     GridLayout {
         anchors.centerIn: parent

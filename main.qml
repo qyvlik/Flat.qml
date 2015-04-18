@@ -23,14 +23,11 @@ FlatMainWindow {
         FlatButton{ text:"FolderDialog"; onClicked: { __createExample(text)} }
         FlatButton{ text:"NewWindow"; onClicked: { __createExample(text)} }
         FlatButton{ text:"RunningAppliction"; onClicked: { __createExample(text)} }
-        FlatButton{ text:"ShowMenu"; onClicked: { __createExample(text)} }
         FlatButton{ text:"ShowMenuInWindow"; onClicked: { __createExample(text)} }
         FlatButton{ text:"SampleVideoPlayer"; onClicked: { __createExample(text)} }
         FlatButton{ text:"BaiduTranslate"; onClicked: { __createExample(text)} }
-        FlatButton{ text:"ShowFlatComponent"; onClicked: { __createExample(text)} }
         FlatButton{ text:"FBIWarning"; onClicked: { __createExample(text)} }
         FlatButton{ text:"FloatingWindow"; onClicked: { __createExample(text)} }
-        FlatButton{ text:"NotePad"; onClicked:{ __createExample(text)}}
         FlatButton{ text:"WebBrowser"; onClicked:{ __createExample(text)}}
         FlatButton{ text:"Test"; onClicked:{ __createExample(text)}}
         FlatButton{ text:"StackViewDemo"; onClicked:{ __createExample(text)}}
@@ -39,9 +36,26 @@ FlatMainWindow {
         FlatButton{ text:"ComboBoxDemo"; onClicked:{ __createExample(text)}}
         FlatButton{ text:"HistorySearchDemo"; onClicked:{ __createExample(text)}}
         FlatButton{ text:"ButtonType"; onClicked:{ __createExample(text)}}
+        FlatButton{ text:"YouTuBe"; onClicked:{ __createExample(text)}}
 
-        //ButtonType
+        //EBookView
         FlatButton{ text:"about"; type: FlatGlobal.typeInfo; onClicked: aboutDialog.show()}
+
+    }
+
+    FlatDialog{
+        id:errorDialog
+        title:"Error"
+        property string errorString
+        content: Item{
+            Text{
+                width: parent.width
+                text:errorDialog.errorString;
+                anchors.margins: 10
+                wrapMode: Text.WordWrap
+                font:FlatGlobal.font
+            }
+        }
     }
 
     FlatDialog{
@@ -72,7 +86,6 @@ FlatMainWindow {
                 }
             }
         }
-
     }
 
     function __createExample(exampleName){
@@ -85,7 +98,8 @@ FlatMainWindow {
             object.y = window.y + 50;
             object.show();
         }catch(e){
-            console.debug(e);
+            errorDialog.errorString = e.toString();
+            errorDialog.show();
         }
     }
 }

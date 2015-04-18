@@ -22,3 +22,7 @@ FlatDialog 2.0 ./element/FlatDialog.qml # use AbstructWindow
 FlatComboBox 2.0 ./element/FlatComboBox.qml # have menu Text Field
 
 FlatMagnet 2.0 ./element/FlatMagnet.qml # may not useful
+
+########### useful component ###################
+FolderDialog 2.0 ./component/FolderDialog.qml
+VideoPlayer 2.0 ./component/VideoPlayer.qml

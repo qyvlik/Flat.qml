@@ -30,10 +30,11 @@ FlatDialog{
     FolderDialog{
         id:fileDialog
         title:" 选择图片 "
-        flags:Qt.Dialog | Qt.FramelessWindowHint | Qt.WindowSystemMenuHint | Qt.Popup
-        onSelectFileNameChanged: {
-            watch(fileDialog.selectFileName);
-            fileDialog.close()
+        onSelect: {
+            if(isFile){
+                watch(fileDialog.selectFile);
+                fileDialog.close()
+            }
         }
     }
 }

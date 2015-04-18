@@ -18,6 +18,7 @@ FlatMainWindow {
         font:FlatGlobal.font
         anchors.fill: parent
         anchors.margins: 5
+        textFormat:TextEdit.RichText
         menu:FlatMenu{
             MenuItem{ text:"Copy"; onTriggered: copy(); }
             MenuItem{ text:"Cut"; onTriggered: cut(); }

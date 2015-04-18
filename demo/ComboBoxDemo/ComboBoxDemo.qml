@@ -11,6 +11,7 @@ import FlatUI 2.0
 FlatMainWindow{
     content:Item{
         FlatComboBox {
+            size:FlatGlobal.sizeExtraSmall
             anchors.centerIn: parent
             currentIndex: 2
             width: 200

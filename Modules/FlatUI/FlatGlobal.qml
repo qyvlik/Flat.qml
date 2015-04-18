@@ -12,7 +12,8 @@
 
 pragma Singleton
 import QtQuick 2.4
-import FlatUI.Private 2.0;
+import FlatUI.Private 2.0
+import QtQuick.Window 2.0
 
 QtObject{
 
@@ -145,42 +146,129 @@ QtObject{
     /* icon type  */
     property FlatIconName
     iconTypeClose: FlatIconName{
-        defaultIcon:"./Resource/icons/Close.png";
-        hoverIcon:"./Resource/icons/CloseHover.png";
-        pressIcon:"./Resource/icons/CloseHover.png";
+        defaultIcon:"./resource/icons/Close.png";
+        hoverIcon:"./resource/icons/CloseHover.png";
+        pressIcon:"./resource/icons/CloseHover.png";
     }
     property FlatIconName
     iconTypeShowMax: FlatIconName{
-        defaultIcon:"./Resource/icons/Maximize.png";
-        hoverIcon:"./Resource/icons/MaximizeHover.png";
-        pressIcon:"./Resource/icons/MaximizeHover.png";
+        defaultIcon:"./resource/icons/Maximize.png";
+        hoverIcon:"./resource/icons/MaximizeHover.png";
+        pressIcon:"./resource/icons/MaximizeHover.png";
     }
     property FlatIconName
     iconTypeShowMin: FlatIconName{
-        defaultIcon:"./Resource/icons/Minimize.png";
-        hoverIcon:"./Resource/icons/MinimizeHover.png";
-        pressIcon:"./Resource/icons/MinimizeHover.png";
+        defaultIcon:"./resource/icons/Minimize.png";
+        hoverIcon:"./resource/icons/MinimizeHover.png";
+        pressIcon:"./resource/icons/MinimizeHover.png";
     }
     property FlatIconName
     iconTypeShowRestore: FlatIconName{
-        defaultIcon:"./Resource/icons/Restore.png";
-        hoverIcon:"./Resource/icons/RestoreHover.png";
-        pressIcon:"./Resource/icons/RestoreHover.png";
+        defaultIcon:"./resource/icons/Restore.png";
+        hoverIcon:"./resource/icons/RestoreHover.png";
+        pressIcon:"./resource/icons/RestoreHover.png";
     }
 
     property FlatIconName
     iconTypeOpenFile: FlatIconName{
-        defaultIcon:"./Resource/icons/File.png";
-        hoverIcon:"./Resource/icons/FileHover.png";
-        pressIcon:"./Resource/icons/FilePressed.png";
+        defaultIcon:"./resource/icons/File.png";
+        hoverIcon:"./resource/icons/FileHover.png";
+        pressIcon:"./resource/icons/FilePressed.png";
     }
 
     property FlatIconName
     iconTypeBack: FlatIconName{
-        defaultIcon:"./Resource/icons/Back.png";
-        hoverIcon:"./Resource/icons/BackHover.png";
-        pressIcon:"./Resource/icons/BackPressed.png";
+        defaultIcon:"./resource/icons/Back.png";
+        hoverIcon:"./resource/icons/BackHover.png";
+        pressIcon:"./resource/icons/BackPressed.png";
     }
+
+    property FlatIconName
+    iconTypeMenu: FlatIconName{
+        defaultIcon:"./resource/icons/Menu.png";
+        hoverIcon:"./resource/icons/MenuHover.png";
+        pressIcon:"./resource/icons/MenuHover.png";
+    }
+
+    property FlatIconName
+    iconTypePlayerPause: FlatIconName{
+        defaultIcon:"./resource/icons/Pause.png";
+        hoverIcon:"./resource/icons/PauseHover.png";
+        pressIcon:"./resource/icons/PauseHover.png";
+    }
+
+    property FlatIconName
+    iconTypePlayerStop: FlatIconName{
+        defaultIcon:"./resource/icons/Stop.png";
+        hoverIcon:"./resource/icons/StopHover.png";
+        pressIcon:"./resource/icons/StopHover.png";
+    }
+
+
+    property FlatIconName
+    iconTypePlayerPlay: FlatIconName{
+        defaultIcon:"./resource/icons/Play.png";
+        hoverIcon:"./resource/icons/PlayHover.png";
+        pressIcon:"./resource/icons/PlayHover.png";
+    }
+
+    property FlatIconName
+    iconTypePlayerSpeed: FlatIconName{
+        defaultIcon:"./resource/icons/Speed.png";
+        hoverIcon:"./resource/icons/SpeedHover.png";
+        pressIcon:"./resource/icons/SpeedHover.png";
+    }
+
+    property FlatIconName
+    iconTypePlayerPrevious: FlatIconName{
+        defaultIcon:"./resource/icons/Previous.png";
+        hoverIcon:"./resource/icons/PreviousHover.png";
+        pressIcon:"./resource/icons/PreviousHover.png";
+    }
+
+    property FlatIconName
+    iconTypePlayerSequence: FlatIconName{
+        defaultIcon:"./resource/icons/Sequence.png";
+        hoverIcon:"./resource/icons/SequenceHover.png";
+        pressIcon:"./resource/icons/SequenceHover.png";
+    }
+
+    property FlatIconName
+    iconTypePlayerOnce: FlatIconName{
+        defaultIcon:"./resource/icons/Once.png";
+        hoverIcon:"./resource/icons/OnceHover.png";
+        pressIcon:"./resource/icons/OnceHover.png";
+    }
+        //Once
+
+    property FlatIconName
+    iconTypePlayerCycle: FlatIconName{
+        defaultIcon:"./resource/icons/Cycle.png";
+        hoverIcon:"./resource/icons/CycleHover.png";
+        pressIcon:"./resource/icons/CycleHover.png";
+    }
+
+    property FlatIconName
+    iconTypePlayerRandom: FlatIconName{
+        defaultIcon:"./resource/icons/Random.png";
+        hoverIcon:"./resource/icons/RandomHover.png";
+        pressIcon:"./resource/icons/RandomHover.png";
+    }
+
+    property FlatIconName
+    iconTypeFullScreen: FlatIconName{
+        defaultIcon:"./resource/icons/FullScreen.png";
+        hoverIcon:"./resource/icons/FullScreenHover.png";
+        pressIcon:"./resource/icons/FullScreenHover.png";
+    }
+
+    property FlatIconName
+    iconTypeScale: FlatIconName{
+        defaultIcon:"./resource/icons/Scale.png";
+        hoverIcon:"./resource/icons/ScaleHover.png";
+        pressIcon:"./resource/icons/ScaleHover.png";
+    }
+
 
 
     function createQmlObjectFromUrl(url,p){

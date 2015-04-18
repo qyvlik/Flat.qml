@@ -23,7 +23,9 @@ Button {
         anchors.fill: iconButton
         hoverEnabled: true
         onClicked: iconButton.clicked();
-        onEntered: iconButton.iconSource = icon.hoverIcon;
-        onExited: iconButton.iconSource = icon.defaultIcon;
+        onEntered: iconButton.iconSource =
+                   Qt.binding(function(){return  icon.hoverIcon;});
+        onExited: iconButton.iconSource =
+                  Qt.binding(function(){return  icon.defaultIcon;});
     }
 }

@@ -18,7 +18,7 @@ import FlatUI.Private 2.0
 
 ApplicationWindow {
     id:window;
-    flags: Qt.FramelessWindowHint | Qt.WindowSystemMenuHint| Qt.WindowMinimizeButtonHint| Qt.Window;
+    flags: Qt.FramelessWindowHint | Qt.WindowSystemMenuHint| Qt.WindowMinimizeButtonHint| Qt.Window
 
     width: 300
     height: 200

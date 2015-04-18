@@ -51,11 +51,11 @@ Menu{
     style:MenuStyle {
         frame:Rectangle{
             color:FlatGlobal.typeInverse.inactiveColor;
-            radius: FlatGlobal.radius;
+            //radius: FlatGlobal.radius;
         }
         itemDelegate.background : Rectangle {
             color:FlatGlobal.typeInverse.inactiveColor;
-            radius: FlatGlobal.radius;
+            //radius: FlatGlobal.radius;
         }
         itemDelegate.label: Label {
             font.family: FlatGlobal.font.family;

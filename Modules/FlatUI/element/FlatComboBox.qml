@@ -23,7 +23,7 @@ ComboBox {
         dropDownButtonWidth:size
         textColor: showText.color
         renderType:Text.NativeRendering
-        background: Rectangle {
+        background: Rectangle { // button background
             radius: FlatGlobal.radius
             border.color: control.focus?type.activeColor:type.inactiveColor
             border.width: 1
