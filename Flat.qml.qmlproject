@@ -20,6 +20,13 @@ Project {
     ImageFiles {
         directory: "." //images://
     }
+    Files {
+        paths:[
+            "modules/FlatUI/qmldir",
+            "demo/DemoSingletonManager/qmldir"
+        ]
+    }
+
     /* List of plugin directories passed to QML runtime */
     importPaths: [ "./modules","./demo" ]
 }
