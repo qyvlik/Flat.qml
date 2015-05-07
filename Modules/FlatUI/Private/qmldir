@@ -7,4 +7,4 @@ module FlatUI.Private
 ActiveColor 2.0 ./ActiveColor.qml
 FlatIconName 2.0 ./FlatIconName.qml
 Separator 2.0 ./Separator.qml
-AbstructWindow 2.0 ./AbstructWindow.qml
+AbstractWindow 2.0 ./AbstractWindow.qml

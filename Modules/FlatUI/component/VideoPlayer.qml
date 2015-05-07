@@ -6,7 +6,6 @@ import QtQuick.Layouts 1.1
 
 Item{
     id:videoPlayer
-    anchors.margins: 2
     property alias sourceUrl:mediaPlayer.source
     property int seekStep: 5000
 
@@ -54,7 +53,7 @@ Item{
 
     readonly property int positionSeconds: Math.round((mediaPlayer.position % 60000) / 1000)
     readonly property int positionMinutes: Math.floor(mediaPlayer.position / 60000)
-    readonly property int positionHours : (mediaPlayer.position / 3600000 > 1) ?Math.floor(player.position / 3600000):0
+    readonly property int positionHours : (mediaPlayer.position / 3600000 > 1) ?Math.floor(mediaPlayer.position / 3600000):0
 
     readonly property string
     positionTime: Qt.formatTime(new Date(0, 0, 0, positionHours, positionMinutes, positionSeconds), qsTr("hh:mm:ss"))
@@ -78,7 +77,9 @@ Item{
             if(isFile){
                 videoPlayer.sourceUrl =
                         Qt.binding(function(){return folderDialog.selectFile;});
+                console.debug("play url : ",videoPlayer.sourceUrl);
                 folderDialog.hide();
+                videoPlayer.play();
             }
         }
     }
@@ -95,11 +96,44 @@ Item{
         MediaPlayer{
             id: mediaPlayer
             onErrorStringChanged: {
+/*
+NoError	There is no current error.
+ResourceError	The audio cannot be played due to a problem allocating resources.
+FormatError	The audio format is not supported.
+NetworkError	The audio cannot be played due to network issues.
+AccessDenied	The audio cannot be played due to insufficient permissions.
+ServiceMissing	The audio cannot be played because the media service could not be instantiated.
+*/
                 console.debug("errorString : ",errorString, " error:",error);
-                messageDialog.message = errorString;
-                if(messageDialog.message !== "")
-                    messageDialog.popup();
-                //messageDialog.show();
+
+                switch(error){
+                case MediaPlayer.NoError:
+                    messageDialog.message = "The audio cannot be played"
+                    " due to a problem allocating resources.";
+                    break;
+                case MediaPlayer.ResourceError:
+                    messageDialog.message = "The audio cannot be played"
+                    " due to a problem allocating resources.";
+                    break;
+                case MediaPlayer.FormatError:
+                    messageDialog.message = "The audio format is not supported.";
+                    break;
+                case MediaPlayer.AccessDenied:
+                    messageDialog.message = "The audio cannot be played"
+                    " due to insufficient permissions.";
+                    break;
+                case MediaPlayer.NetworkError:
+                    messageDialog.message = "The audio cannot be played due to network issues.";
+                    break;
+                case MediaPlayer.ServiceMissing:
+                    messageDialog.message = "The audio cannot be played "
+                    "because the media service could not be instantiated.";
+                    break;
+                default:
+                    messageDialog.message = "Unknow Error";
+                    break;
+                }
+                messageDialog.show();
             }
         }
     }
@@ -125,7 +159,7 @@ Item{
                 name:"hideBar"
                 PropertyChanges {
                     target: playerBar
-                    y:parent.height
+                    y:parent.height+10
                 }
             }
         ]
@@ -243,10 +277,11 @@ Item{
                 }
                 // loops < 0 ? iconTypePlayerOnce : iconTypePlayerCycle
                 FlatIcon{
-                    icon:loops < 0 ?
-                             FlatGlobal.iconTypePlayerOnce :
-                             FlatGlobal.iconTypePlayerCycle
-                    onClicked: loops < 0 ? loops = 1:loops = -1;
+                    icon:loops != MediaPlayer.Infinite ?
+                             FlatGlobal.iconTypePlayerCycle :
+                             FlatGlobal.iconTypePlayerOnce
+                    onClicked: loops != MediaPlayer.Infinite ?
+                                   loops = MediaPlayer.Infinite:loops = 1;
                 }
                 Separator{
                     orientation:Qt.Vertical;

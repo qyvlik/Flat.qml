@@ -13,8 +13,11 @@ import QtQuick.Layouts 1.1
 import FlatUI 2.0
 import FlatUI.Private 2.0
 
-AbstructWindow{
-    id:window;
+AbstractWindow{
+    id:window
+    // 使用Component.incubateObject() 加载根类型为Window的控件时
+    // 务必设置控件的根对象的visiblle属性为true
+    visible:true
     // 0,1,2,3,4 show, showNormal, showFullScreen, showMaxmized, showMinmized;
     onShowStateChanged: {
         switch(window.showState)

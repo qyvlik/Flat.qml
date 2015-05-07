@@ -18,6 +18,7 @@ ApplicationWindow {
     flags: Qt.FramelessWindowHint | Qt.WindowSystemMenuHint| Qt.WindowMinimizeButtonHint| Qt.Window
     width:700
     height:400
+    visible:true
 
     style: ApplicationWindowStyle{
         background: Rectangle{ color:window.color;border.width: 1;border.color: "#ccc"; }

@@ -18,9 +18,41 @@ FlatDialog {
     property alias rootFolder:folderModel.rootFolder
     property alias nameFilters : folderModel.nameFilters
     property alias folder: folderModel.folder
-
     property url selectFile
     signal select(bool isFile)
+
+    titleBarIcons : GridLayout {
+        id: windowButtonSystem
+        FlatTextField{
+            id:hard
+            text:"c"
+            size:FlatGlobal.sizeExtraSmall
+            placeholderText:"input hard name : c"
+            validator:RegExpValidator{
+                regExp : /[A-Za-z]/
+            }
+            onTextChanged: {
+                folderModel.folder = Qt.binding(function(){return "file:/"+text+":/";});
+            }
+        }
+
+        FlatIcon {
+            id: colseButton
+            icon: FlatGlobal.iconTypeClose
+            onClicked : {
+                window.close();
+            }
+        }
+
+        // at begin of window load, the key focus was in window
+        focus:true;
+        Keys.onPressed: {
+            if(event.key == Qt.Key_Escape) {
+                event.accepted= true;
+                window.close();
+            }
+        }
+    }
 
     FolderListModel {
         id: folderModel

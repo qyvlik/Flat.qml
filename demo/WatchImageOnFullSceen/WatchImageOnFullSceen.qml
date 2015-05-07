@@ -10,6 +10,7 @@ import QtQuick.Controls 1.3
 FlatDialog{
     id:watchImageOnFullSceen
     title:"查看图片"
+    visible:true
     property url imageSource
 
     function watch(url){

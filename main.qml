@@ -11,16 +11,18 @@ import FlatUI 2.0
 
 FlatMainWindow {
     id:window;
+    objectName:"MainWindow"
     title: qsTr("Flat Example Demo")
-    width: 640
-    height: 480
+    width: 960
+    height: 540
+    visible:true
 
     contentControl.anchors.margins: 20
     content: Flow{
+        id:flow
         spacing: 10
         FlatButton{ text:"AddTags"; onClicked: { __createExample(text)} }
         FlatButton{ text:"CodeEditor"; onClicked: { __createExample(text)} }
-        FlatButton{ text:"FolderDialog"; onClicked: { __createExample(text)} }
         FlatButton{ text:"NewWindow"; onClicked: { __createExample(text)} }
         FlatButton{ text:"RunningAppliction"; onClicked: { __createExample(text)} }
         FlatButton{ text:"ShowMenuInWindow"; onClicked: { __createExample(text)} }
@@ -33,30 +35,26 @@ FlatMainWindow {
         FlatButton{ text:"StackViewDemo"; onClicked:{ __createExample(text)}}
         FlatButton{ text:"WatchImageOnFullSceen"; onClicked:{ __createExample(text)}}
         FlatButton{ text:"GroupBoxDemo"; onClicked:{ __createExample(text)}}
-        FlatButton{ text:"ComboBoxDemo"; onClicked:{ __createExample(text)}}
+
+        //![error ] Error - RtlWerpReportException failed with status code :-1073741823. Will try to launch the process directly
+        FlatButton{ text:"ComboBoxDemo";type:FlatGlobal.typeDanger; onClicked:{ __createExample(text)}}
+        //![error ] Error - RtlWerpReportException failed with status code :-1073741823. Will try to launch the process directly
+
         FlatButton{ text:"HistorySearchDemo"; onClicked:{ __createExample(text)}}
         FlatButton{ text:"ButtonType"; onClicked:{ __createExample(text)}}
         FlatButton{ text:"YouTuBe"; onClicked:{ __createExample(text)}}
+        FlatButton{ text:"DoubanClient"; onClicked:{ __createExample(text)}}
 
-        //EBookView
+        FlatButton{ text:"SampleErrorExample"; type:FlatGlobal.typeDanger; onClicked:{ __createExample(text)}}
+        FlatButton{ text:"Engineering"; type:FlatGlobal.typeInverse; onClicked:{ __createExample(text)}}
+        //Engineering
         FlatButton{ text:"about"; type: FlatGlobal.typeInfo; onClicked: aboutDialog.show()}
-
+        FlatButton{ text:"get a image"; type: FlatGlobal.typeWarning; onClicked: FlatGlobal.saveImageToFile(flow,"flow.png")}
     }
 
-    FlatDialog{
-        id:errorDialog
-        title:"Error"
-        property string errorString
-        content: Item{
-            Text{
-                width: parent.width
-                text:errorDialog.errorString;
-                anchors.margins: 10
-                wrapMode: Text.WordWrap
-                font:FlatGlobal.font
-            }
-        }
-    }
+
+
+    ErrorDialog{ id:errorDialog; }
 
     FlatDialog{
         id:aboutDialog
@@ -77,11 +75,11 @@ FlatMainWindow {
                     spacing:10
                     FlatButton{
                         text:"look FlatUI"
-                        onClicked: Qt.openUrlExternally("http://www.bootcss.com/p/flat-ui")
+                        onClicked: Qt.openUrlExternally("http://www.bootcss.com/p/flat-ui");
                     }
                     FlatButton{
                         text:"look QtQuick"
-                        onClicked: Qt.openUrlExternally("http://www.qt.io")
+                        onClicked: Qt.openUrlExternally("http://www.qt.io");
                     }
                 }
             }
@@ -89,17 +87,26 @@ FlatMainWindow {
     }
 
     function __createExample(exampleName){
-        var elementUrl = String("../../demo/"+exampleName+"/"+exampleName+".qml");
+        var elementUrl = Qt.resolvedUrl(String("demo/"+exampleName+"/"+exampleName+".qml"));
+        var e,object;
         console.debug("will create ",exampleName, " from :",elementUrl);
-        var object = FlatGlobal.createQmlObjectFromUrl(elementUrl,0);
-        var e;
-        try{
-            object.x = window.x + 50;
-            object.y = window.y + 50;
-            object.show();
-        }catch(e){
-            errorDialog.errorString = e.toString();
-            errorDialog.show();
-        }
+        // on Event
+        FlatGlobal.createQmlObjectFromUrlFinished.connect(function(object,error){
+            // connect once
+            FlatGlobal.createQmlObjectFromUrlFinished.disconnect(arguments.callee);
+            if(!FlatGlobal.objectIsNull(object)){
+                object.x = window.x + 50;
+                object.y = window.y + 50;
+                object.show();
+            } else{
+                errorDialog.errorString = error;
+                errorDialog.show();
+            }
+        });
+        object = FlatGlobal.createQmlObjectFromUrl(elementUrl,0);
+        // var object = FlatGlobal.createQmlObjectFromUrl(elementUrl,window);
+    }
+
+    Component.onCompleted: {
     }
 }

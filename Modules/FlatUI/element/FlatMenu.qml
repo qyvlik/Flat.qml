@@ -35,7 +35,7 @@ import QtQuick.Controls.Styles 1.3
 import FlatUI 2.0
 import FlatUI.Private 2.0
 
-Menu{
+Menu {
     property int size: FlatGlobal.sizeDefault
     property ActiveColor type : FlatGlobal.typeDefault;
 

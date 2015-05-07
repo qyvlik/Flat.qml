@@ -20,7 +20,7 @@ import QtQuick.Layouts 1.1
 import FlatUI 2.0
 import FlatUI.Private 2.0
 
-AbstructWindow {
+AbstractWindow {
     id:dialog
     width: 300
     height: 200

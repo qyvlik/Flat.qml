@@ -13,6 +13,7 @@ FlatDialog{
     id:window
     width: 400
     height: 500
+    visible:true
     StackView {
         anchors.fill: parent
         id: stack

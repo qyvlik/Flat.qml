@@ -12,7 +12,7 @@ QtObject {
             if(e[iter].error_code == error_code) {
                 console.log("error_code : ",error_code);
                 console.log("errorString : ",e[iter].errorString);
-                console.log("错误说明 : ",e[iter].错误说明);
+                console.log("错误说明 : ",e[iter].错误说明 );
                 return e[iter];
             }
         }

@@ -7,18 +7,9 @@
 import QmlProject 1.1
 
 Project {
-    //mainFile: "./demo/AddTags/AddTags.qml"
-    //mainFile: "./demo/ShowMenu/ShowMenu.qml"
-    //mainFile: "./demo/RunningAppliction/RunningAppliction.qml"
-    //mainFile: "./demo/CodeEditor/CodeEditor.qml"
-    //mainFile: "./demo/ShowMenuInWindow/ShowMenuInWindow.qml"
-    //mainFile: "./demo/SidebarDemo/SidebarDemo.qml"
-    //mainFile: "./demo/DoubanAPIDemo/DoubanAPIDemo.qml"
+    //mainFile: "./demo/HistorySearchDemo/HistorySearchDemo.qml"
 
-    //mainFile: "./demo/LookYouTuBe/LookYouTuBe.qml"
-    //mainFile: "./demo/DoubanClient/DoubanClient.qml"
     mainFile: "main.qml"
-    //mainFile: "./demo/LookYouTuBe/LookYouTuBe.qml"
     /* Include .qml, .js, and image files from current directory and subdirectories */
     QmlFiles {
         directory: "."
@@ -27,7 +18,7 @@ Project {
         directory: "."
     }
     ImageFiles {
-        directory: "."
+        directory: "." //images://
     }
     /* List of plugin directories passed to QML runtime */
     importPaths: [ "./modules","./demo" ]

@@ -9,7 +9,7 @@ import FlatUI.Private 2.0 // to use private element AbstructWindow
 import QtQuick 2.4
 import QtQuick.Controls.Styles 1.3
 
-AbstructWindow{
+AbstractWindow{
     id:window
     width: 500
     height: 250

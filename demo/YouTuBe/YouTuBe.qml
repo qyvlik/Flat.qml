@@ -4,18 +4,20 @@ import QtQuick.Layouts 1.1
 import QtMultimedia 5.4
 import FlatUI 2.0
 import FlatUI.Private 2.0
-import "./YouTuBe"
+import DemoSingletonManager 1.0 // demo singleton object manager
 
 MyWindow{
     id:window
     title:"VideoPlayer"
+    visible:true // very import property!!
     width: 730
     height: 480
-
+    windowBorderColor: "black"
     VideoPlayer {
         id:video
         sourceUrl: "" //YouTuBe.youTuBeVideoDownloadUrl
         anchors.fill: parent
+        anchors.margins: 1
         showState: window.showState
         MouseArea{
             anchors.fill: parent
@@ -56,6 +58,9 @@ MyWindow{
         }
     }
 
+    function controlSiderBar(){
+        var nil = siderBar.isShow?siderBar.close():siderBar.show();
+    }
 
     SiderBar{
         id:siderBar;
@@ -90,16 +95,15 @@ MyWindow{
                         text:"play"
                         width:180
                         onClicked: {
-                            setYouTuBeUrl(youtubeUrl.text);
-                            YouTuBe.finished.connect(function(){
-                                YouTuBe.finished.disconnect(arguments.callee);
+                            DemoSingletonManager.youTuBeDownLoad.finished.connect(function(){
+                                DemoSingletonManager.youTuBeDownLoad.finished.disconnect(arguments.callee);
                                 // console.debug(YouTuBe.youTuBeVideoDownloadUrl);
-
                                 video.sourceUrl =
                                         Qt.binding(function(){
-                                            return YouTuBe.youTuBeVideoDownloadUrl;
+                                            return  DemoSingletonManager.youTuBeDownLoad.youTuBeVideoDownloadUrl;
                                         });
                             });
+                            setYouTuBeUrl(youtubeUrl.text);
                             controlSiderBar();
                         }
                     }
@@ -109,11 +113,12 @@ MyWindow{
                         text:"download"
                         width:180
                         onClicked: {
-                            setYouTuBeUrl(youtubeUrl.text);
-                            YouTuBe.finished.connect(function(){
-                                YouTuBe.finished.disconnect(arguments.callee);
-                                YouTuBe.downloadYouTubeVideoByBroswer();
+                            DemoSingletonManager.youTuBeDownLoad.finished.connect(function(){
+                                DemoSingletonManager.youTuBeDownLoad.finished.disconnect(arguments.callee);
+                                window.showState = FlatGlobal.showMinmized;
+                                DemoSingletonManager.youTuBeDownLoad.downloadYouTubeVideoByBroswer();
                             });
+                            setYouTuBeUrl(youtubeUrl.text);
                             controlSiderBar();
                         }
                     }

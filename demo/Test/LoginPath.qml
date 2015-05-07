@@ -12,7 +12,7 @@ Column{
     Row{
         spacing:10
         FlatButton { text:"账号" }
-        FlatTextField{ placeholderText:"输入账号" }
+        FlatTextField{  id:name;placeholderText:"输入账号" }
     }
     Row{
         spacing:10
@@ -25,7 +25,12 @@ Column{
     FlatButton {
         text:"登陆"
         anchors.right: parent.right
-        onClicked: TestGlobal.pageStatus = 1
+        onClicked: {
+            // todo
+            if(name.text == "123") {
+                TestGlobal.pageStatus = 1;
+            }
+        }
     }
 }
 

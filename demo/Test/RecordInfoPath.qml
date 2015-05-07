@@ -53,7 +53,7 @@ Column{
                 showImageToFullscreenLabel.opacity = 0.8
             }
             onExited: {
-               showImageToFullscreenLabel.opacity = 0
+                showImageToFullscreenLabel.opacity = 0
             }
         }
     }
@@ -71,17 +71,26 @@ Column{
             source: watchImageOnFullSceen.imageSource
         }
     }
-
-    FlatButton{
-        text:"提交"
-        onClicked: submitDialog.show()
+    Row{
+        spacing: 10
+        FlatButton{
+            text:"提交"
+            onClicked: submitDialog.show()
+        }
+        FlatButton{
+            text:"提交"
+            onClicked: submitDialog.show()
+        }
     }
     FolderDialog{
         id:folderDialog
         title:"选择图片"
-        onSelectFileNameChanged: {
-            showImage.source = folderDialog.selectFileName;
-            folderDialog.close()
+        onSelect: {
+            if(isFile){
+                showImage.source = folderDialog.selectFile;
+                folderDialog.close()
+            }
+
         }
     }
     FlatDialog{

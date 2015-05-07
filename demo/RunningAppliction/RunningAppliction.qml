@@ -13,7 +13,7 @@ FlatMainWindow {
     title: qsTr("running appliction")
     width: 300
     height:100
-
+    visible:true
     GridLayout {
         anchors.centerIn: parent
         rows: 2

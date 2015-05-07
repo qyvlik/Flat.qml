@@ -13,6 +13,7 @@ FlatMainWindow {
     title:"登陆"
     width:400
     height: 500
+    visible:true
     ScrollView{
         anchors.fill: parent
         anchors.margins: 10

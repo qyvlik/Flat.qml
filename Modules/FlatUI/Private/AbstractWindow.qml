@@ -25,6 +25,7 @@ ApplicationWindow {
     minimumHeight:50
     minimumWidth:100
     color:"white"
+    property color windowBorderColor : "#ccc"
 
     //    -1,0,1,2,3,4
     //    close, show, showNormal, showFullScreen, showMaxmized, showMinmized;
@@ -72,7 +73,7 @@ ApplicationWindow {
     }
 
     // to loader title bar icons
-    property alias titleBarIcons:__loader.sourceComponent
+    property alias titleBarIcons:__iconloader.sourceComponent
 
     // to set content item
     // note content is a component* type
@@ -86,7 +87,7 @@ ApplicationWindow {
     readonly property alias titleBarArea:__titlebarArea
 
     style: ApplicationWindowStyle{
-        background: Rectangle{ color:window.color;border.width: 1;border.color: "#ccc"; }
+        background: Rectangle{ color:window.color;border.width: 1;border.color: windowBorderColor; }
     }
 
     toolBar : Rectangle{
@@ -125,7 +126,7 @@ ApplicationWindow {
 
         // to loader title bar icons
         Loader {
-            id:__loader
+            id:__iconloader
             anchors.right: titleBar.right
             anchors.rightMargin: FlatGlobal.sizeExtraSmall
             anchors.verticalCenter: titleBar.verticalCenter
@@ -134,6 +135,6 @@ ApplicationWindow {
             focus:true
         }
     }
-    Component.onCompleted: console.debug("window was create :",window);
-    Component.onDestruction: console.debug("window was destroy :",window);
+    //Component.onCompleted: console.debug("window was create :",window);
+    //Component.onDestruction: console.debug("window was destroy :",window);
 }

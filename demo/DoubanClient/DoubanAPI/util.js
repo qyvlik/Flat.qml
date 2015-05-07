@@ -15,7 +15,7 @@ function readTextFromUrl(url,getTextHandle) {
             getTextHandle(doc.responseText);
         }
     }
-    doc.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    //doc.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     doc.open("GET",url);
     doc.send(null);
     doc.open("GET",url);

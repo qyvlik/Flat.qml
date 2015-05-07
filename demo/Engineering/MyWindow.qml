@@ -3,11 +3,9 @@ import QtQuick.Layouts 1.1
 import QtMultimedia 5.4
 import FlatUI 2.0
 import FlatUI.Private 2.0
-import DemoSingletonManager 1.0
 
 AbstractWindow{
     id:window
-    color:"black"
     MouseArea {
         z:window.z + 1
         anchors.right: parent.right
@@ -28,6 +26,8 @@ AbstractWindow{
             }
         }
     }
+
+    signal controlSiderBar()
 
     toolBar:Rectangle{
         id: titleBar;
@@ -72,12 +72,6 @@ AbstractWindow{
                 onClicked: controlSiderBar();
             }
 
-            FlatButton{
-                size: FlatGlobal.sizeExtraSmall
-                text:window.title
-                type:FlatGlobal.typeDanger
-            }
-
             Text{
                 font.family: FlatGlobal.font.family
                 font.pointSize: FlatGlobal.sizeExtraSmall
@@ -101,14 +95,6 @@ AbstractWindow{
             }
         }
 
-    }
-
-
-
-    function setYouTuBeUrl(url){
-        // "http://www.youtube.com/watch?v=7zlvbHow9Gw"
-        DemoSingletonManager.youTuBeDownLoad.youTuBePlayUrl = url.toString();
-        DemoSingletonManager.youTuBeDownLoad.getYouTuBeVideoDownloadUrl();
     }
 
     onShowStateChanged: {

@@ -16,6 +16,7 @@ FlatMainWindow {
     title: qsTr("press mouse right button")
     width: 640
     height: 480
+    visible:true
 
     MouseArea{
         anchors.fill: parent;
