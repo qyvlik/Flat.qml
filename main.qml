@@ -23,7 +23,6 @@ FlatMainWindow {
         spacing: 10
         FlatButton{ text:"AddTags"; onClicked: { __createExample(text)} }
         FlatButton{ text:"CodeEditor"; onClicked: { __createExample(text)} }
-        FlatButton{ text:"NewWindow"; onClicked: { __createExample(text)} }
         FlatButton{ text:"RunningAppliction"; onClicked: { __createExample(text)} }
         FlatButton{ text:"ShowMenuInWindow"; onClicked: { __createExample(text)} }
         FlatButton{ text:"SampleVideoPlayer"; onClicked: { __createExample(text)} }
