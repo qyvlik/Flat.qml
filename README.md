@@ -1,29 +1,32 @@
 # Flat.qml
-FlatUI by qml, 参考FlatUI设计的一套qml控件
+
+FlatUI by qml. 参考 FlatUI 设计的一套 qml 控件
 
 ##ButtonStyle
 
-![buttonstyle](https://github.com/qyvlik/Flat.qml/blob/master/Screenshot/ButtonType.png?raw=true "buttonstyle")
+![buttonstyle](Screenshot/ButtonType.png?raw=true "buttonstyle")
 
----
+
 
 ##GroupBox
-![groupbox](https://github.com/qyvlik/Flat.qml/blob/master/Screenshot/GroupBox.png?raw=true "groupbox")
 
----
+![groupbox](Screenshot/GroupBox.png "groupbox")
 
 ##SampleVideoPlayer
-![SampleVideoPlayer](https://github.com/qyvlik/Flat.qml/blob/master/Screenshot/SampleVideoPlayer-001.png?raw=true "VideoPlayer")
 
----
+![SampleVideoPlayer](Screenshot/SampleVideoPlayer-001.png "VideoPlayer")
+
 
 ##new demo
+
 ###YouTuBe
-![](https://github.com/qyvlik/Flat.qml/blob/master/Screenshot/downloadYouTuBeVideo.png?raw=true)
-![](https://github.com/qyvlik/Flat.qml/blob/master/Screenshot/downloadYouTuBeVideo_showSiderBar.png?raw=true)
 
-***
+![](Screenshot/downloadYouTuBeVideo.png)
 
-> [FlatUI](https://github.com/designmodo/Flat-UI)
-> [Qt](http://www.qt.io/)
-> [blog](http://blog.csdn.net/qyvlik)
+![](Screenshot/downloadYouTuBeVideo_showSiderBar.png)
+
+
+
+> [FlatUI](https://github.com/designmodo/Flat-UI) <br/>
+> [Qt](http://www.qt.io/) <br/>
+> [blog](http://blog.csdn.net/qyvlik) <br/>
