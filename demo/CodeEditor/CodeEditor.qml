@@ -19,6 +19,7 @@ FlatMainWindow {
         anchors.fill: parent
         anchors.margins: 5
         textFormat:TextEdit.RichText
+        // @disable-check M16
         menu:FlatMenu{
             MenuItem{ text:"Copy"; onTriggered: copy(); }
             MenuItem{ text:"Cut"; onTriggered: cut(); }

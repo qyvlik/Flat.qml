@@ -40,14 +40,14 @@ ApplicationWindow {
             var e;
             window.close();
             try{
-                window.destroy();
+                window.destroy(10);
             }catch(e){
-                console.debug(window,"destroy has some error",e)
+                console.debug(window,"destroy has some error",e);
             }
         }
     }
 
- /*
+    /*
  Qt::WindowNoState       0x00000000	The window has no state set (in normal state).
  Qt::WindowMinimized     0x00000001	The window is minimized (i.e. iconified).
  Qt::WindowMaximized     0x00000002	The window is maximized with a frame around it.
@@ -86,6 +86,7 @@ ApplicationWindow {
 
     readonly property alias titleBarArea:__titlebarArea
 
+    // @disable-check M16
     style: ApplicationWindowStyle{
         background: Rectangle{ color:window.color;border.width: 1;border.color: windowBorderColor; }
     }
