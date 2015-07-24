@@ -13,6 +13,7 @@ AbstractWindow{
     id:window
     width: 500
     height: 250
+    // @disable-check M16
     style:ApplicationWindowStyle{ background: Rectangle{ color:"black" } }
 
     toolBar:Rectangle{

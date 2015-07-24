@@ -17,6 +17,12 @@ FlatMainWindow {
     height: 540
     visible:true
 
+//    menuBar: MenuBar{
+//        Menu{
+//            title:"title"
+//        }
+//    }
+
     contentControl.anchors.margins: 20
     content: Flow{
         id:flow
@@ -46,12 +52,12 @@ FlatMainWindow {
 
         FlatButton{ text:"SampleErrorExample"; type:FlatGlobal.typeDanger; onClicked:{ __createExample(text)}}
         FlatButton{ text:"Engineering"; type:FlatGlobal.typeInverse; onClicked:{ __createExample(text)}}
-        //Engineering
+        FlatButton{ text:"USBWebClient"; type:FlatGlobal.typeInverse; onClicked:{ __createExample(text)}}
+
+        //USBWebClient
         FlatButton{ text:"about"; type: FlatGlobal.typeInfo; onClicked: aboutDialog.show()}
         FlatButton{ text:"get a image"; type: FlatGlobal.typeWarning; onClicked: FlatGlobal.saveImageToFile(flow,"flow.png")}
     }
-
-
 
     ErrorDialog{ id:errorDialog; }
 
@@ -106,6 +112,8 @@ FlatMainWindow {
         // var object = FlatGlobal.createQmlObjectFromUrl(elementUrl,window);
     }
 
+
     Component.onCompleted: {
+
     }
 }

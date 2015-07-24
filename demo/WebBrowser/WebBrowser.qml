@@ -19,7 +19,7 @@ ApplicationWindow {
     width:700
     height:400
     visible:true
-
+    // @disable-check M16
     style: ApplicationWindowStyle{
         background: Rectangle{ color:window.color;border.width: 1;border.color: "#ccc"; }
     }

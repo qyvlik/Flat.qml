@@ -16,6 +16,7 @@ ApplicationWindow{
     width: 200
     height: 200
     flags: Qt.FramelessWindowHint | Qt.Popup // popup 屏幕上最高层次的窗体
+    // @disable-check M16
     style:ApplicationWindowStyle{ background: Rectangle{ color:"transparent" } }
     color:"transparent"
 

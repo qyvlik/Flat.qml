@@ -23,7 +23,8 @@ Project {
     Files {
         paths:[
             "modules/FlatUI/qmldir",
-            "demo/DemoSingletonManager/qmldir"
+            "demo/DemoSingletonManager/qmldir",
+            "README.md"
         ]
     }
 
