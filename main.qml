@@ -114,6 +114,5 @@ FlatMainWindow {
 
 
     Component.onCompleted: {
-
     }
 }

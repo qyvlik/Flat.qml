@@ -317,10 +317,7 @@ BluetoothDiscoveryModel.UnknownError	An unknown error occurred.
     }
 
     function objectIsNull(object){
-        if (!object && typeof(object)!="undefined" && object != 0){
-            return true;
-        }
-        return false;
+        return (!object && typeof(object)!="undefined" && object != 0);
     }
 
     function saveImageToFile(item,fileName){

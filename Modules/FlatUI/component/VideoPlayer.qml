@@ -1,5 +1,5 @@
 import QtQuick 2.3
-import QtMultimedia 5.3
+import QtMultimedia 5.4
 import FlatUI 2.0
 import FlatUI.Private 2.0
 import QtQuick.Layouts 1.1
