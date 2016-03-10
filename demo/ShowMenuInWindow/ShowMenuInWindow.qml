@@ -26,11 +26,25 @@ FlatMainWindow {
         }
     }
 
+    // 注意 菜单的root必须为 FlatMenu 才可以有样式
+    // 内嵌的二级或者子级菜单必须为 Menu！
     FlatMenu{
         id:menu
         MenuItem{
             text:"what's this ?"
             onTriggered: dialog.show();
+        }
+
+        Menu {
+            title: "Second Menu"
+
+            Menu {
+                title: "Thrid Menu"
+
+                MenuItem {
+                    text: "Do Nothing"
+                }
+            }
         }
     }
 
