@@ -16,8 +16,6 @@ FlatUI by `QtQuick.Controls` 1.x.
 
 ![SampleVideoPlayer](Screenshot/SampleVideoPlayer-001.png "VideoPlayer")
 
-## new demo
-
 ### YouTuBe
 
 ![](Screenshot/downloadYouTuBeVideo.png)

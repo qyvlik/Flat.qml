@@ -7,10 +7,10 @@
 import QmlProject 1.1
 
 Project {
-    //mainFile: "./demo/HistorySearchDemo/HistorySearchDemo.qml"
+    /* Include .qml, .js, and image files from current directory and subdirectories */
 
     mainFile: "main.qml"
-    /* Include .qml, .js, and image files from current directory and subdirectories */
+
     QmlFiles {
         directory: "."
     }
