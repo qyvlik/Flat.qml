@@ -96,24 +96,14 @@ Item{
         MediaPlayer{
             id: mediaPlayer
             onErrorStringChanged: {
-/*
-NoError	There is no current error.
-ResourceError	The audio cannot be played due to a problem allocating resources.
-FormatError	The audio format is not supported.
-NetworkError	The audio cannot be played due to network issues.
-AccessDenied	The audio cannot be played due to insufficient permissions.
-ServiceMissing	The audio cannot be played because the media service could not be instantiated.
-*/
                 console.debug("errorString : ",errorString, " error:",error);
 
                 switch(error){
                 case MediaPlayer.NoError:
-                    messageDialog.message = "The audio cannot be played"
-                    " due to a problem allocating resources.";
+                    messageDialog.message = "The audio cannot be played due to a problem allocating resources.";
                     break;
                 case MediaPlayer.ResourceError:
-                    messageDialog.message = "The audio cannot be played"
-                    " due to a problem allocating resources.";
+                    messageDialog.message = "The audio cannot be played due to a problem allocating resources.";
                     break;
                 case MediaPlayer.FormatError:
                     messageDialog.message = "The audio format is not supported.";
@@ -126,8 +116,7 @@ ServiceMissing	The audio cannot be played because the media service could not be
                     messageDialog.message = "The audio cannot be played due to network issues.";
                     break;
                 case MediaPlayer.ServiceMissing:
-                    messageDialog.message = "The audio cannot be played "
-                    "because the media service could not be instantiated.";
+                    messageDialog.message = "The audio cannot be played because the media service could not be instantiated.";
                     break;
                 default:
                     messageDialog.message = "Unknow Error";
@@ -299,6 +288,7 @@ ServiceMissing	The audio cannot be played because the media service could not be
             }
         }
     }
+
     function play(){ mediaPlayer.play(); }
     function pause(){ mediaPlayer.pause(); }
     function stop(){ mediaPlayer.stop(); }

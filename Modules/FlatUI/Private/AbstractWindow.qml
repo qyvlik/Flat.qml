@@ -91,9 +91,10 @@ ApplicationWindow {
         background: Rectangle{ color:window.color;border.width: 1;border.color: windowBorderColor; }
     }
 
-    toolBar : Rectangle{
+    toolBar : Rectangle {
         id: titleBar;
-        width: window.width;   height: FlatGlobal.sizeExtraHuge
+        width: window.width
+        height: FlatGlobal.sizeExtraHuge
 
         Separator{ orientation: Qt.Horizontal; length: titleBar.width;color:"#ccc"; }
         Separator{ orientation: Qt.Vertical; length: titleBar.height; color:"#ccc"; anchors.right: titleBar.right; }

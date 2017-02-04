@@ -1,6 +1,0 @@
-# author qyvlik
-# email qyvlik@qq.com
-# time 2015/4/15
-
-singleton DoubanGlobal DoubanGlobal.qml
-singleton DoubanError DoubanError.qml

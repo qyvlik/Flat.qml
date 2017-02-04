@@ -4,8 +4,9 @@ import QtMultimedia 5.4
 import FlatUI 2.0
 import FlatUI.Private 2.0
 
-AbstractWindow{
+AbstractWindow {
     id:window
+
     MouseArea {
         z:window.z + 1
         anchors.right: parent.right
@@ -14,7 +15,10 @@ AbstractWindow{
         width: 10
         height: 10
         property point previousPosition
-        onPressed:  previousPosition = Qt.point(mouseX, mouseY);
+        onPressed: {
+            previousPosition = Qt.point(mouseX, mouseY);
+            cursorShape = Qt.SizeFDiagCursor
+        }
         onPositionChanged: {
             if (pressedButtons == Qt.LeftButton) {
                 var dx = mouseX - previousPosition.x;

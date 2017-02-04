@@ -3,10 +3,12 @@
  * email qyvlik@qq.com
  * time 2015/4/10
 */
+
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import QtQuick.Window 2.2
 import QtQuick.Controls 1.3
+
 import FlatUI 2.0
 
 FlatMainWindow {
@@ -51,7 +53,7 @@ FlatMainWindow {
         FlatButton{ text:"DoubanClient"; onClicked:{ __createExample(text)}}
 
         FlatButton{ text:"SampleErrorExample"; type:FlatGlobal.typeDanger; onClicked:{ __createExample(text)}}
-        FlatButton{ text:"Engineering"; type:FlatGlobal.typeInverse; onClicked:{ __createExample(text)}}
+        FlatButton{ text:"FormWindow"; type:FlatGlobal.typeInverse; onClicked:{ __createExample(text)}}
         FlatButton{ text:"USBWebClient"; type:FlatGlobal.typeInverse; onClicked:{ __createExample(text)}}
 
         //USBWebClient
@@ -93,26 +95,15 @@ FlatMainWindow {
 
     function __createExample(exampleName){
         var elementUrl = Qt.resolvedUrl(String("demo/"+exampleName+"/"+exampleName+".qml"));
-        var e,object;
-        console.debug("will create ",exampleName, " from :",elementUrl);
-        // on Event
-        FlatGlobal.createQmlObjectFromUrlFinished.connect(function(object,error){
-            // connect once
-            FlatGlobal.createQmlObjectFromUrlFinished.disconnect(arguments.callee);
-            if(!FlatGlobal.objectIsNull(object)){
-                object.x = window.x + 50;
-                object.y = window.y + 50;
-                object.show();
-            } else{
-                errorDialog.errorString = error;
-                errorDialog.show();
-            }
+        var properties = {
+            x:  window.x + 50,
+            y: window.y + 50
+        }
+        FlatGlobal.createQmlObjectFromUrl2(elementUrl, null,
+                                           properties, function(win){
+            win.show();
         });
-        object = FlatGlobal.createQmlObjectFromUrl(elementUrl,0);
-        // var object = FlatGlobal.createQmlObjectFromUrl(elementUrl,window);
+
     }
 
-
-    Component.onCompleted: {
-    }
 }

@@ -65,27 +65,6 @@ QtObject{
     readonly property int sizeSmall : 12
     readonly property int sizeExtraSmall :10
 
-    /* error type */
-
-    /* readonly property int errorType:1 */
-/*
-Audio
-NoError	There is no current error.
-ResourceError	The audio cannot be played due to a problem allocating resources.
-FormatError	The audio format is not supported.
-NetworkError	The audio cannot be played due to network issues.
-AccessDenied	The audio cannot be played due to insufficient permissions.
-ServiceMissing	The audio cannot be played because the media service could not be instantiated.
-
-BluetoothDiscoveryModel.NoError	No error occurred.
-BluetoothDiscoveryModel.InputOutputError	An IO failure occurred during device discovery
-BluetoothDiscoveryModel.PoweredOffError	The bluetooth device is not powered on.
-BluetoothDiscoveryModel.InvalidBluetoothAdapterError	There is no default Bluetooth device to perform the service discovery. The model always uses the local default adapter. Specifying a default adapter is not possible. If that's required, QBluetoothServiceDiscoveryAgent should be directly used. This value was introduced by Qt 5.4.
-BluetoothDiscoveryModel.UnknownError	An unknown error occurred.
-*/
-
-
-
     /* style color type */
     property ActiveColor
     typePrimary: ActiveColor {
@@ -160,10 +139,6 @@ BluetoothDiscoveryModel.UnknownError	An unknown error occurred.
     readonly property int showMaxmized : 3
     readonly property int showFullScreen : 4
 
-    //    /* */
-    //    property QtObject windowTypeDialog
-    //    property QtObject windowTypeMainWindow
-    //    property QtObject windowTypeGLWindow
 
     /* icon type  */
     property FlatIconName
@@ -291,28 +266,23 @@ BluetoothDiscoveryModel.UnknownError	An unknown error occurred.
         pressIcon:"./resource/icons/ScaleHover.png"
     }
 
-    signal createQmlObjectFromUrlFinished(variant object,string error)
-    function createQmlObjectFromUrl(url,p){
-        var component = Qt.createComponent(url);
-        console.assert(component,"component created failedly");
-        // console.count("createQmlObjectFromUrl called times: ");
-        // 异步动态创建大对象
-        var incubator = component.incubateObject(p);
-        console.assert(!objectIsNull(incubator));
-        if(!objectIsNull(incubator)){
-            if (incubator.status != Component.Ready) {
-                incubator.onStatusChanged = function(status) {
-                    // console.count("incubator status change called times :");
-                    if (status == Component.Ready) {
-                        // console.debug("Object", incubator.object, "is now ready!");
-                        createQmlObjectFromUrlFinished(incubator.object,"");
-                    }
-                }
-            }
-            // inneed
-            incubator.forceCompletion();
+    function createQmlObjectFromUrl2(url, parent, properties, callback, error) {
+        // url use Qt.resolvedUrl() warp
+        properties = properties || {};
+        callback = callback || function(object) {
+            console.log("createQmlObjectFromUrl2 success:", "object:", object);
+        };
+        error = error || function(e) {
+            console.log("createQmlObjectFromUrl2 fail:", "error:", e)
+        }
+
+        var component = Qt.createComponent(url, Component.PreferSynchronous);
+
+        if (component.status === Component.Ready) {
+            var qmlObject = component.createObject(parent, properties);
+            callback(qmlObject);
         } else {
-            createQmlObjectFromUrlFinished(null,component.errorString());
+            error(component.errorString());
         }
     }
 
@@ -320,20 +290,20 @@ BluetoothDiscoveryModel.UnknownError	An unknown error occurred.
         return (!object && typeof(object)!="undefined" && object != 0);
     }
 
-    function saveImageToFile(item,fileName){
+    function saveImageToFile(item, fileName){
         if(Qt.isQtObject(item)){
             return  item.grabToImage(function(result){
                 // result QQuickItemGrabResult::saveToFile(QString)
                 // fileName 不能是file:// 开头！
-                 result.saveToFile(fileName.toString());
-             });
+                result.saveToFile(fileName.toString());
+            });
         } else {
-            throw item.toString()+"isn't a Qt or QML object";
+            throw item.toString() + "isn't a Qt or QML object";
         }
     }
 
     function urlEncode(url){
-        return  encodeURIComponent(url.toString());
+        return encodeURIComponent(url.toString());
     }
 
     function urlDecode(url){

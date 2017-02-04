@@ -1,8 +1,8 @@
 # Flat.qml
 
-FlatUI by qml. 
+FlatUI by `QtQuick.Controls` 1.x.
 
-参考 FlatUI 设计的一套 qml 控件
+参考 FlatUI 设计的一套 QtQuick 控件
 
 ## ButtonStyle
 
@@ -24,6 +24,9 @@ FlatUI by qml.
 
 ![](Screenshot/downloadYouTuBeVideo_showSiderBar.png)
 
-> [FlatUI](https://github.com/designmodo/Flat-UI) <br/>
-> [Qt](http://www.qt.io/) <br/>
-> [blog](http://blog.csdn.net/qyvlik) <br/>
+> [FlatUI](https://github.com/designmodo/Flat-UI)
+
+> [Qt](http://www.qt.io/)
+
+> [blog](http://blog.csdn.net/qyvlik)
+

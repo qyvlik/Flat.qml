@@ -27,7 +27,7 @@ Project {
     }
     Files {
         directory: "."
-        filter: "*qmldir*"
+        filter: "qmldir"
     }
 
     /* List of plugin directories passed to QML runtime */

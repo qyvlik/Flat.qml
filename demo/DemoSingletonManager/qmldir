@@ -1,4 +1,0 @@
-module DemoSingletonManager
-singleton DemoSingletonManager 1.0 DemoSingletonManager.qml
-
-# you can add singleton object to here~

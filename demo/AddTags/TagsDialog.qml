@@ -66,14 +66,10 @@ FlatDialog{
         FlatTags{ text:"Qt" }
     }
     function __createTags(tagsName){
-        FlatGlobal.createQmlObjectFromUrlFinished.connect(function(object,error){
-            // connect once
-            FlatGlobal.createQmlObjectFromUrlFinished.disconnect(arguments.callee);
-            if(!FlatGlobal.objectIsNull(object)){
-                object.text = tagsName;
-            }
-        });
-        FlatGlobal.createQmlObjectFromUrl("../../modules/FlatUI/element/FlatTags.qml",flow);
+        var properties = {
+            text: tagsName
+        };
+        FlatGlobal.createQmlObjectFromUrl2(Qt.resolvedUrl("../../modules/FlatUI/element/FlatTags.qml"), flow, properties)
     }
 }
 

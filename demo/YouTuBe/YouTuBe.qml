@@ -2,17 +2,18 @@ import QtQuick 2.3
 import QtQuick.Controls 1.2
 import QtQuick.Layouts 1.1
 import QtMultimedia 5.4
+
 import FlatUI 2.0
 import FlatUI.Private 2.0
-import DemoSingletonManager 1.0 // demo singleton object manager
 
-MyWindow{
+MyWindow {
     id:window
     title:"VideoPlayer"
     visible:true // very import property!!
     width: 730
     height: 480
     windowBorderColor: "black"
+
     VideoPlayer {
         id:video
         sourceUrl: "" //YouTuBe.youTuBeVideoDownloadUrl
@@ -62,7 +63,7 @@ MyWindow{
         var nil = siderBar.isShow?siderBar.close():siderBar.show();
     }
 
-    SiderBar{
+    SiderBar {
         id:siderBar;
         header:Item{
             width: siderBar.width
@@ -95,15 +96,6 @@ MyWindow{
                         text:"play"
                         width:180
                         onClicked: {
-                            DemoSingletonManager.youTuBeDownLoad.finished.connect(function(){
-                                DemoSingletonManager.youTuBeDownLoad.finished.disconnect(arguments.callee);
-                                // console.debug(YouTuBe.youTuBeVideoDownloadUrl);
-                                video.sourceUrl =
-                                        Qt.binding(function(){
-                                            return  DemoSingletonManager.youTuBeDownLoad.youTuBeVideoDownloadUrl;
-                                        });
-                            });
-                            setYouTuBeUrl(youtubeUrl.text);
                             controlSiderBar();
                         }
                     }
@@ -113,12 +105,6 @@ MyWindow{
                         text:"download"
                         width:180
                         onClicked: {
-                            DemoSingletonManager.youTuBeDownLoad.finished.connect(function(){
-                                DemoSingletonManager.youTuBeDownLoad.finished.disconnect(arguments.callee);
-                                window.showState = FlatGlobal.showMinmized;
-                                DemoSingletonManager.youTuBeDownLoad.downloadYouTubeVideoByBroswer();
-                            });
-                            setYouTuBeUrl(youtubeUrl.text);
                             controlSiderBar();
                         }
                     }
