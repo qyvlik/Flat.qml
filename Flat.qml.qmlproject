@@ -31,5 +31,5 @@ Project {
     }
 
     /* List of plugin directories passed to QML runtime */
-    importPaths: [ "./modules","./demo" ]
+    importPaths: [ "./modules"]
 }

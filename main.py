@@ -13,7 +13,7 @@ class Main(QObject):
     def __init__(self,parent=None):
         super(Main, self).__init__(parent)
         self.engine = QQmlApplicationEngine(self)
-        self.engine.addImportPath("./Modules")
+        self.engine.addImportPath("./modules")
         # 注意，在demo中，部分demo使用到了单例qml，需要使用qmldir来生效，所有需要导入demo
         self.engine.addImportPath("./demo")
         self.engine.load(QUrl.fromLocalFile('main.qml'))
